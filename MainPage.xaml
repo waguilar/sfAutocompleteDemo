@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:local="clr-namespace:sfAutocompleteTest"
+             x:Class="sfAutocompleteTest.MainPage">
+    
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Choose social media"/>
+            <editors:SfAutocomplete WidthRequest="250"
+                                    DisplayMemberPath = "Name"
+                                    TextMemberPath = "Name"
+                                    Text="{Binding SelectedMediaText}"
+                                    SelectedItem="{Binding SocialMedia}"
+                                    ItemsSource="{Binding SocialMedias}" />
+            <!--This block should show the Text binding property-->
+            <HorizontalStackLayout>
+                <Label Text="Selected social media Text: "/>
+                <Label Text="{Binding SelectedMediaText}" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+
+            <!--This block should show the SelectedItem binding property-->
+            <HorizontalStackLayout>
+                <Label Text="Selected social media SelectedItem: "/>
+                <Label Text="{Binding SocialMedia.Name}" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
